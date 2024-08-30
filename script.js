@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ dni, estado: selectedState }),
-                mode: 'no-cors'
+                mode: 'cors'
             })
             .then(response => {
                 console.log(response);
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ dni, detalle }),
-                mode: 'no-cors'
+                mode: 'cors'
             })
             .then(response => {
                 if (response.ok) {
