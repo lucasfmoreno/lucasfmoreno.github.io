@@ -3,16 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Inicial</title>
+    <title>Menú Inicial</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <img src="logo.png" alt="Logo" class="logo">
+
         <div class="btn-group">
-            <button onclick="window.location.href='reportar_estado.html'" class="menu-btn">Reportar Estado</button>
-            <button onclick="window.location.href='reportar_averia.html'" class="menu-btn">Reportar Avería</button>
+            <button id="reportar-estado" onclick="window.location.href='reportar_estado.html'" class="menu-btn">Reportar Estado</button>
+            <button id="reportar-averia" onclick="window.location.href='reportar_averia.html'" class="menu-btn">Reportar Avería</button>
         </div>
+
+        <input type="text" id="backend-url" placeholder="Ingrese la URL base del backend" required>
+        <button id="guardar-url">Guardar URL</button>
+
+    
+
+        <div id="alert" class="alert"></div>
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
+

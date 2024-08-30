@@ -19,18 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Lógica para la página de reporte de estado
         document.getElementById('enviar').addEventListener('click', () => {
             const dni = document.getElementById('dni').value;
+            const backendUrl = localStorage.getItem('backendUrl');
 
             if (!dni || !selectedState) {
                 alert('Por favor complete todos los campos.');
                 return;
             }
 
-            fetch('http://www.test.com/ejemplo', {
+            fetch(`${backendUrl}/estado`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ dni, estado: selectedState }),
+                mode: 'no-cors'
             })
             .then(response => {
                 if (response.ok) {
@@ -57,18 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('enviar').addEventListener('click', () => {
             const dni = document.getElementById('dni').value;
             const detalle = document.getElementById('detalle').value;
+            const backendUrl = localStorage.getItem('backendUrl');
 
             if (!dni || !detalle) {
                 alert('Por favor complete todos los campos.');
                 return;
             }
 
-            fetch('http://www.test.com/averia', {
+            fetch(`${backendUrl}/averia`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ dni, detalle }),
+                mode: 'no-cors'
             })
             .then(response => {
                 if (response.ok) {
