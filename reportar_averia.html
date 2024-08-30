@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Avería</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <input type="text" id="dni" placeholder="Ingrese su DNI" required>
+        <textarea id="detalle" placeholder="Describa la avería..." required></textarea>
+
+        <button id="enviar">Enviar Avería</button>
+        <button class="volver" onclick="window.location.href='index.html'">Volver atrás</button>
+
+        <div id="alert" class="alert"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

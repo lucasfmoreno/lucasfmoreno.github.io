@@ -1,0 +1,157 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco translúcido */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px; /* Ampliado para los botones horizontales */
+    width: 100%;
+    text-align: center;
+}
+
+.logo {
+    max-width: 225px;
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 85%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #f15a24;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Hace que el padding no agregue ancho adicional */
+}
+
+textarea {
+    width: 85%;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #f15a24;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.menu-btn {
+    background-color: #f15a24;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, filter 0.3s;
+    width: 100px; /* Ancho fijo para los botones cuadrados */
+    height: 100px; /* Alto fijo para los botones cuadrados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box; /* Hace que el padding no agregue ancho adicional */
+}
+
+.estado-btn {
+    background-color: #f15a24;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, filter 0.3s;
+    width: 100px; /* Ancho fijo para los botones cuadrados */
+    height: 100px; /* Alto fijo para los botones cuadrados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box; /* Hace que el padding no agregue ancho adicional */
+}
+
+.estado-btn:hover {
+    background-color: #ca4c1e;
+}
+
+.estado-btn.selected {
+    background-color: #ca4c1e;
+    filter: brightness(85%);
+}
+
+#enviar {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+#enviar:hover {
+    background-color: #218838;
+}
+
+.volver {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.volver:hover {
+    background-color: #5a6268;
+}
+
+.alert {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

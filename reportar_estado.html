@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Estado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <input type="text" id="dni" placeholder="Ingrese su DNI" required>
+
+        <div class="btn-group">
+            <button id="estado1" class="estado-btn" onclick="selectState('Llegue a carga', this)">Llegué a carga</button>
+            <button id="estado2" class="estado-btn" onclick="selectState('Sali de carga', this)">Salí de carga</button>
+            <button id="estado3" class="estado-btn" onclick="selectState('Llegue a descarga', this)">Llegué a descarga</button>
+            <button id="estado4" class="estado-btn" onclick="selectState('Estoy libre', this)">Estoy libre</button>
+        </div>
+
+        <button id="enviar">Enviar Estado</button>
+        <button class="volver" onclick="window.location.href='index.html'">Volver atrás</button>
+
+        <div id="alert" class="alert"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
