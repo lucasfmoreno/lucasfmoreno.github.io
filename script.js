@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Voy a conectar con " + backendUrl + "/estado");
 
             fetch(`${backendUrl}/estado`, {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ dni, detalle }),
+                body: JSON.stringify({ dni, averia: detalle }),
                 mode: 'cors'
             })
                 .then(response => {
