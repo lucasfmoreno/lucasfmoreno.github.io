@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const savedUrl = localStorage.getItem('backendUrl');
+    if (savedUrl) {
+        document.getElementById('backend-url').value = savedUrl;
+    }
+});
+
 document.getElementById('guardar-url').addEventListener('click', () => {
     const url = document.getElementById('backend-url').value;
     if (url) {

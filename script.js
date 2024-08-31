@@ -15,9 +15,16 @@ function selectState(state, buttonElement) {
 document.addEventListener('DOMContentLoaded', () => {
     const currentPath = window.location.pathname;
 
+    const savedDni = localStorage.getItem('dni');
+    if (savedDni) {
+        console.log("Encontre dni guardado "+savedDni+" lo seteo en campo");
+        document.getElementById('dni').value = savedDni;
+    }
+
     if (currentPath.includes('reportar_estado.html')) {
         // Lógica para la página de reporte de estado
         document.getElementById('enviar').addEventListener('click', () => {
+
             const dni = document.getElementById('dni').value;
             const backendUrl = localStorage.getItem('backendUrl');
 
@@ -26,39 +33,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            console.log("Voy a conectar con "+backendUrl+"/estado");
+            console.log("Voy a guardar dni seteado "+dni);
+            localStorage.setItem('dni', dni);
+
+            console.log("Voy a conectar con " + backendUrl + "/estado");
 
             fetch(`${backendUrl}/estado`, {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ dni, estado: selectedState }),
                 mode: 'cors'
             })
-            .then(response => {
-                console.log(response);
-                if (response.ok) {
-                    console.log("Ok en then");
-                    document.getElementById('alert').textContent = 'Estado enviado correctamente.';
-                    document.getElementById('alert').className = 'alert success';
-                    document.getElementById('dni').value = '';
-                    selectedState = null;
-                    const buttons = document.querySelectorAll('.estado-btn');
-                    buttons.forEach(btn => btn.classList.remove('selected'));
-                } else {
-                    console.log("Error en then");
+                .then(response => {
+                    console.log(response);
+                    if (response.ok) {
+                        console.log("Ok en then");
+                        document.getElementById('alert').textContent = 'Estado enviado correctamente.';
+                        document.getElementById('alert').className = 'alert success';
+                        document.getElementById('dni').value = '';
+                        selectedState = null;
+                        const buttons = document.querySelectorAll('.estado-btn');
+                        buttons.forEach(btn => btn.classList.remove('selected'));
+                    } else {
+                        console.log("Error en then");
+                        document.getElementById('alert').textContent = 'Error al enviar el estado.';
+                        document.getElementById('alert').className = 'alert error';
+                    }
+                    document.getElementById('alert').style.display = 'block';
+                })
+                .catch(() => {
+                    console.log("CATCH");
                     document.getElementById('alert').textContent = 'Error al enviar el estado.';
                     document.getElementById('alert').className = 'alert error';
-                }
-                document.getElementById('alert').style.display = 'block';
-            })
-            .catch(() => {
-                console.log("CATCH");
-                document.getElementById('alert').textContent = 'Error al enviar el estado.';
-                document.getElementById('alert').className = 'alert error';
-                document.getElementById('alert').style.display = 'block';
-            });
+                    document.getElementById('alert').style.display = 'block';
+                });
         });
     } else if (currentPath.includes('reportar_averia.html')) {
         // Lógica para la página de reporte de avería
@@ -72,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            console.log("Voy a conectar con "+backendUrl+"/averia");
+            console.log("Voy a conectar con " + backendUrl + "/averia");
 
             fetch(`${backendUrl}/averia`, {
                 method: 'POST',
@@ -82,26 +92,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ dni, detalle }),
                 mode: 'cors'
             })
-            .then(response => {
-                if (response.ok) {
-                    console.log("Ok en then");
-                    document.getElementById('alert').textContent = 'Avería enviada correctamente.';
-                    document.getElementById('alert').className = 'alert success';
-                    document.getElementById('dni').value = '';
-                    document.getElementById('detalle').value = '';
-                } else {
-                    console.log("Error en then");
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Ok en then");
+                        document.getElementById('alert').textContent = 'Avería enviada correctamente.';
+                        document.getElementById('alert').className = 'alert success';
+                        document.getElementById('dni').value = '';
+                        document.getElementById('detalle').value = '';
+                    } else {
+                        console.log("Error en then");
+                        document.getElementById('alert').textContent = 'Error al enviar la avería.';
+                        document.getElementById('alert').className = 'alert error';
+                    }
+                    document.getElementById('alert').style.display = 'block';
+                })
+                .catch(() => {
+                    console.log("Catch");
                     document.getElementById('alert').textContent = 'Error al enviar la avería.';
                     document.getElementById('alert').className = 'alert error';
-                }
-                document.getElementById('alert').style.display = 'block';
-            })
-            .catch(() => {
-                console.log("Catch");
-                document.getElementById('alert').textContent = 'Error al enviar la avería.';
-                document.getElementById('alert').className = 'alert error';
-                document.getElementById('alert').style.display = 'block';
-            });
+                    document.getElementById('alert').style.display = 'block';
+                });
         });
     }
 });
