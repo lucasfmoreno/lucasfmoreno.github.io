@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("Version 1.0");
     const savedUrl = localStorage.getItem('backendUrl');
     if (savedUrl) {
         document.getElementById('backend-url').value = savedUrl;
