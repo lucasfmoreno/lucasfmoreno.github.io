@@ -1,0 +1,25 @@
+<body>
+
+  <video loop [muted]="true" [autoplay]="true" id="myVideo">
+    <source src="../../../assets/video.mp4" type="video/mp4">
+  </video>
+
+
+  <div id="body_content">
+
+    <div id="box_login">
+      <img id="imageview_logo" src="../../assets/logo.png">
+      <input id="textfield_appkey" (keyup.enter)="onSubmit()" type="text" [(ngModel)]="key" placeholder="AppKey"/>
+      <button id="button_ingresar" (click)="onSubmit()">LogIn</button>
+      <div id="div_msjerror" *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+    </div>
+
+    
+
+  </div>
+
+    <div id="box_footer">
+      <img id="logo_furnarius" src="../../../assets/logo_furnarius.png">
+    </div>
+
+</body>

@@ -1,0 +1,112 @@
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#body_content {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-width: fit-content;
+  min-height: fit-content;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#box_login {
+  position:absolute;
+  top:20%; 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: hsla(0, 0%, 100%, 0.85);
+  border-radius: 10px;
+  color: #000000;
+  height: 45%;
+  width: 30%;
+  min-width: fit-content;
+  min-height: fit-content;
+  max-height: fit-content;
+}
+
+#imageview_logo {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#textfield_appkey {
+  padding-left: 3%;
+  margin-top: 5%;
+  align-self: center;
+  width: 80%;
+  font-size: calc(0.75em + 1vmin);
+  border-radius: 5px;
+  border-style: solid;
+  border-color: gray;
+}
+
+#button_ingresar:enabled {
+  background-color: #000000;
+}
+
+#button_ingresar {
+  width: 20%;
+  align-self: last baseline;
+  margin-top: 3%;
+  margin-right: 10%;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  min-width: fit-content;
+}
+
+#div_msjerror {
+  margin-bottom: 2%;
+}
+
+#footer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+
+  min-width: fit-content;
+  min-height: fit-content;
+
+  width: 60%;
+  height: 17%;
+}
+
+#box_footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#logo_furnarius {
+  max-width: 100%; /* Limita el ancho de la imagen */
+  height: auto;
+  padding-top: 10px;
+  scale: 80%;
+  padding-bottom: 10px;
+  padding-left: 15%;
+  padding-right: 15%;
+  object-fit: contain; /* Mantiene la relación de aspecto */
+
+  /* background: hsla(0, 0%, 3%, 0.80); */
+  /* border-top-left-radius: 20px; */
+  /* border-top-right-radius: 20px; */
+}
