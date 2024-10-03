@@ -43,7 +43,8 @@
   border-top-right-radius: 15px;
 }
 
-#textfield_appkey {
+.textfield_login {
+/* #textfield_appkey { */
   padding-left: 3%;
   margin-top: 5%;
   align-self: center;

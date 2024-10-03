@@ -9,7 +9,9 @@
 
     <div id="box_login">
       <img id="imageview_logo" src="../../assets/logo.png">
-      <input id="textfield_appkey" (keyup.enter)="onSubmit()" type="text" [(ngModel)]="key" placeholder="AppKey"/>
+      <input class="textfield_login" id="textfield_user" type="text" [(ngModel)]="user" placeholder="Usuario"/>
+      <input class="textfield_login" id="textfield_appkey" (keyup.enter)="onSubmit()" 
+      type="text" [(ngModel)]="key" placeholder="AppKey"/>
       <button id="button_ingresar" (click)="onSubmit()">LogIn</button>
       <div id="div_msjerror" *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
     </div>

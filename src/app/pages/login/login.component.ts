@@ -13,6 +13,7 @@ export class LoginComponent {
   private router = inject(Router);
 
   key: string = '';
+  user: string = '';
   errorMessage: string = '';
 
   constructor() {
@@ -21,17 +22,22 @@ export class LoginComponent {
       this.router.navigate(["/home"]);
     }
   }
- 
+
 
   onSubmit() {
-    this.accesoService.login("hola", this.key).subscribe({
+    this.accesoService.login(this.user, this.key).subscribe({
       next: (data) => {
+        console.log("Llego a data");
         if (data.code == 200) {
           localStorage.setItem("token", data.token);
-          this.router.navigate(["/success"]);
+          this.router.navigate(["/home"]);
         } else {
           this.errorMessage = "La clave ingresada no es válida."
         }
+      }
+      , error: (error) => {
+        console.log("Llego a error: " + error);
+        this.errorMessage = "Credenciales incorrectas";
       }
     });
   }

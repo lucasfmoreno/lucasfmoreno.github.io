@@ -15,12 +15,12 @@ export class LeftSidebarComponent {
   items = [
     {
       routeLink: 'preguntas',
-      icon: 'fal fa-home',
+      icon: 'fal fa-book',
       label: 'Preguntas',
     },
     {
       routeLink: 'conversaciones',
-      icon: 'fal fa-box-open',
+      icon: 'fal fa-comment',
       label: 'Conversaciones',
     }
   ];
