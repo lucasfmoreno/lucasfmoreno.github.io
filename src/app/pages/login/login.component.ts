@@ -18,7 +18,7 @@ export class LoginComponent {
   constructor() {
     if (localStorage.getItem("token") != null) {
       console.log("Voy derecho a success porque ya hay un token guardado.");
-      this.router.navigate(["/success"]);
+      this.router.navigate(["/home"]);
     }
   }
  

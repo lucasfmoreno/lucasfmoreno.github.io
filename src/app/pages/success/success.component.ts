@@ -1,6 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject, OnInit, signal } from '@angular/core';
 import { BackendfurnariusService } from '../../services/backendfurnarius.service';
 import { Router } from '@angular/router';
+import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
+import { MainComponent } from './main/main.component';
 
 @Component({
   selector: 'app-success',
@@ -16,6 +18,8 @@ export class SuccessComponent {
   constructor(private backfurnserv: BackendfurnariusService) { }
 
   ngOnInit(): void {
+    this.isLeftSidebarCollapsed.set(this.screenWidth() < 768);
+
     this.backfurnserv.getAllMessages().subscribe({
       next: (data: String[]) => {
         console.log("Hay " + data.length + " messages.");
@@ -28,6 +32,21 @@ export class SuccessComponent {
         this.router.navigate([""]);
       }
     });
+  }
+
+  isLeftSidebarCollapsed = signal<boolean>(false);
+  screenWidth = signal<number>(window.innerWidth);
+
+  @HostListener('window:resize')
+  onResize() {
+    this.screenWidth.set(window.innerWidth);
+    if (this.screenWidth() < 768) {
+      this.isLeftSidebarCollapsed.set(true);
+    }
+  }
+
+  changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {
+    this.isLeftSidebarCollapsed.set(isLeftSidebarCollapsed);
   }
 
 }

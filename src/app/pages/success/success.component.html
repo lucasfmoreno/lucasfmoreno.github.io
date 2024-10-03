@@ -1,5 +1,13 @@
-<div style="text-align:center;">
-    <h1>Ingreso exitoso</h1>
-    <p>Bienvenido a la aplicación.</p>
-  </div>
+<app-left-sidebar
+  [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+  (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
+/>
+
+<app-main
+  [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+  [screenWidth]="screenWidth()"
+>
+  <!-- Aquí se cargarán los componentes de las subrutas -->
+  <router-outlet></router-outlet>
+</app-main>
   
