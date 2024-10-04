@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { appSettings } from '../settings/appsettings';
+import { appSettings } from '../../settings/appsettings';
 import { Observable } from 'rxjs';
-import { ResponseAcceso } from '../interfaces/ResponseAcceso';
+import { ResponseAcceso } from '../../interfaces/auth/ResponseAcceso';
 
 @Injectable({
   providedIn: 'root'

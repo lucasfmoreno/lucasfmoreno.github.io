@@ -1,0 +1,44 @@
+<div mat-dialog-title>
+    <h1>{{data ? 'Editar': 'Agregar'}} Pregunta</h1>
+</div>
+
+<form [formGroup]="preguntaForm" (ngSubmit)="onSubmit()">
+
+    <div mat-dialog-content class="content">
+
+        <div class="row">
+
+            <mat-form-field appearance="outline">
+                <mat-label>ID Propio:</mat-label>
+                <input matInput type="text" placeholder="miIdPropio1" formControlName="idPropio">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Categoria:</mat-label>
+                <input matInput placeholder="Instalacion" formControlName="categoria">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Pregunta:</mat-label>
+                <input matInput placeholder="¿Como puedo instalar?" formControlName="pregunta">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Respuesta:</mat-label>
+                <textarea matInput placeholder="Ejecutar setup.exe" formControlName="respuesta" rows="5"></textarea>
+            </mat-form-field>
+
+        </div>
+       
+    </div>
+
+    <div mat-dialog-actions class="action-btns">
+
+        <button style="margin: 10px;" mat-raised-button color="accent" 
+        type="submit">{{data ? 'Update': 'Save'}}</button>
+
+        <button mat-raised-button type="button" color="warn" [mat-dialog-close]="false">Cancel</button>
+
+    </div>
+    
+</form>

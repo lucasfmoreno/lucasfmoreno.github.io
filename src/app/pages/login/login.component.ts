@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccesoService } from '../../services/acceso.service';
+import { AccesoService } from '../../services/acceso/acceso.service';
 
 @Component({
   selector: 'app-login',
@@ -27,12 +27,11 @@ export class LoginComponent {
   onSubmit() {
     this.accesoService.login(this.user, this.key).subscribe({
       next: (data) => {
-        console.log("Llego a data");
-        if (data.code == 200) {
+        if (data.status.code == 200) {
           localStorage.setItem("token", data.token);
           this.router.navigate(["/home"]);
         } else {
-          this.errorMessage = "La clave ingresada no es válida."
+          this.errorMessage = data.status.message
         }
       }
       , error: (error) => {

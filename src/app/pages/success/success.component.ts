@@ -1,8 +1,5 @@
-import { Component, HostListener, inject, OnInit, signal } from '@angular/core';
-import { BackendfurnariusService } from '../../services/backendfurnarius.service';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
-import { MainComponent } from './main/main.component';
 
 @Component({
   selector: 'app-success',
@@ -15,23 +12,23 @@ export class SuccessComponent {
 
   data: String[] = [];
 
-  constructor(private backfurnserv: BackendfurnariusService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.isLeftSidebarCollapsed.set(this.screenWidth() < 768);
 
-    this.backfurnserv.getAllMessages().subscribe({
-      next: (data: String[]) => {
-        console.log("Hay " + data.length + " messages.");
-        this.data = data;
-      },
-      error: (err) => {
-        console.log("El error es: " + err);
-        console.log("Borro el token y redirijo a login");
-        localStorage.removeItem("token");
-        this.router.navigate([""]);
-      }
-    });
+    // this.backfurnserv.getAllMessages().subscribe({
+    //   next: (data: String[]) => {
+    //     console.log("Hay " + data.length + " messages.");
+    //     this.data = data;
+    //   },
+    //   error: (err) => {
+    //     console.log("El error es: " + err);
+    //     console.log("Borro el token y redirijo a login");
+    //     localStorage.removeItem("token");
+    //     this.router.navigate([""]);
+    //   }
+    // });
   }
 
   isLeftSidebarCollapsed = signal<boolean>(false);
